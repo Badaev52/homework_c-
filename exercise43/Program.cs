@@ -4,18 +4,25 @@
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 EnteringCoefficients(out double b1, out double k1, out double b2, out double k2);
-var point = PointOfIntersectionOfLines(b1, k1, b2, k2);
+bool check = PointOfIntersectionOfLines(b1, k1, b2, k2, out double x, out double y);
 
-Console.WriteLine($"Координаты точки пересечения x = {point.Item1}, y = {point.Item2}");
+if(check) Console.WriteLine($"Координаты точки пересечения x = {x}, y = {y}");
+else Console.WriteLine("Нет решения");
 
-(double, double) PointOfIntersectionOfLines(double b1, double k1, double b2, double k2)
+bool PointOfIntersectionOfLines(double b1, double k1, double b2, double k2, out double x, out double y)
 {
+    if (k1 == k2)
+    {
+        x = y = 0;
+        return false;
+    }
+    else
+    {
+        x = (b2 - b1) / (k1 - k2);
+        y = k1 * x + b1;
+        return true;
+    }
 
-    double x = (b2 - b1) / (k1 - k2);
-    double y = k1 * x + b1;
-    var res = (x, y);
-
-    return res;
 
 }
 
