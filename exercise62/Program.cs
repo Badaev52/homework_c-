@@ -5,7 +5,7 @@
 // 11 16 15 06
 // 10 09 08 07
 
-int n = 4;
+int n = 5;
 
 
 
@@ -15,33 +15,33 @@ Print2dArray(arr);
 int[,] Create2dIntArray(int n)
 {
 
-    int x = 0, y = 0, size = n, count = 1;
+    int row = 0, col = 0, size = n, count = 1;
     int[,] arr = new int[n, n];
 
     while (size > 0)
     {
-        for (int i = y; i <= y + size - 1; i++)
+        for (int i = col; i <= col + size - 1; i++)
         {
-            arr[x, i] = count++;
+            arr[row, i] = count++;
         }
 
-        for (int j = x + 1; j <= x + size - 1; j++)
+        for (int j = row + 1; j <= row + size - 1; j++)
         {
-            arr[j, y + size - 1] = count++;
+            arr[j, col + size - 1] = count++;
         }
 
-        for (int i = y + size - 2; i >= y; i--)
+        for (int i = col + size - 2; i >= col; i--)
         {
-            arr[x + size - 1, i] = count++;
+            arr[row + size - 1, i] = count++;
         }
 
-        for (int i = x + size - 2; i >= x + 1; i--)
+        for (int i = row + size - 2; i >= row + 1; i--)
         {
-            arr[i, y] = count++;
+            arr[i, col] = count++;
         }
 
-        x = x + 1;
-        y = y + 1;
+        row = row + 1;
+        col = col + 1;
         size = size - 2;
     }
     return arr;
