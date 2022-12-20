@@ -27,8 +27,9 @@ int FindingMinimumNumberRow(int[] arr)
     int minInd = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] < min) {
-            
+        if (arr[i] < min)
+        {
+
             min = arr[i];
             minInd = i;
 
