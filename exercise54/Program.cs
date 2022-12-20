@@ -9,7 +9,12 @@
 // 9 5 3 2
 // 8 4 4 2
 
-int[,] arr = Create2dIntArray(4, 3, 0, 20);
+int row = 5;
+int col = 6;
+int rndMin = 0;
+int rndMax = 100;
+
+int[,] arr = Create2dIntArray(row, col, rndMin, rndMax);
 Print2dArray(arr);
 BubleSortRow2dArray(arr);
 Console.WriteLine("--------------");
